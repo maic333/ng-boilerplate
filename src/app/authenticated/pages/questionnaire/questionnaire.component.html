@@ -1,0 +1,52 @@
+<div fxLayout="column">
+  <app-logo></app-logo>
+
+  <form
+    [formGroup]="form"
+    (submit)="save(form)"
+    fxLayout="column" fxLayoutGap="10px"
+  >
+    <h1>Personal details</h1>
+
+    <div fxLayout="row">
+      <app-form-input
+        formControlName="firstName"
+        placeholder="First Name"
+        [required]="true"
+      ></app-form-input>
+    </div>
+
+    <div fxLayout="row">
+      <app-form-input
+        formControlName="lastName"
+        placeholder="Last Name"
+      ></app-form-input>
+    </div>
+
+    <div
+      class="question"
+      formArrayName="questions"
+      fxLayout="column"
+    >
+      <h1>Questions</h1>
+      <div
+        *ngFor="let questionForm of form.get('questions').controls; let i = index"
+        [formGroupName]="i"
+        fxLayout="row" fxLayoutGap="15px"
+      >
+        <app-form-input
+          formControlName="title"
+          placeholder="Question title"
+        ></app-form-input>
+      </div>
+
+      <div fxLayout="row">
+        <button type="button" mat-flat-button color="accent" (click)="addNewQuestion()">Add question</button>
+      </div>
+    </div>
+
+    <div fxLayout="row">
+      <button mat-raised-button color="primary">Save</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,30 @@
+//Imports:
+@import '_fonts';
+@import 'common';
+
+html, body, ul, li, div, span {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: $font-roboto;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container-card {
+  width: 400px;
+  overflow: hidden;
+
+  @media #{$small-mobile-devices} {
+    width: 90%;
+  }
+}

@@ -1,0 +1,28 @@
+<div fxLayout="row" fxLayoutAlign="center">
+  <mat-card class="container-card" fxLayout="column">
+    <app-logo></app-logo>
+
+    <form
+      [formGroup]="form"
+      (submit)="login(form)"
+      fxLayout="column" fxLayoutGap="10px"
+    >
+      <app-form-input
+        formControlName="email"
+        placeholder="Email"
+        [required]="true"
+      ></app-form-input>
+
+      <app-form-input
+        formControlName="password"
+        type="password"
+        placeholder="Password"
+        [required]="true"
+      ></app-form-input>
+
+      <div fxLayout="row">
+        <button mat-raised-button color="primary">Login</button>
+      </div>
+    </form>
+  </mat-card>
+</div>
